@@ -1,11 +1,12 @@
+var restoredShortcuts = {}
 function autoFill(){
-	if(restoredShortcuts[this.value] != undefined){
-		this.value = restoredShortcuts[this.value];
+	if(restoredShortcuts != undefined){
+		if(restoredShortcuts[this.value] != undefined){
+			this.value = restoredShortcuts[this.value];
+		}
 	}
-	
 }
 
-var restoredShortcuts = {}
 chrome.storage.sync.get(['shortcutValues'], function(result) {
 	restoredShortcuts = result['shortcutValues'];
 });
